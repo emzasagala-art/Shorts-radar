@@ -1,7 +1,24 @@
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
 import urllib.request
 import json
 import time
 
+# Server dummy kecil agar Render mendeteksi sebagai Web Service aktif
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Radar Shorts 24/7 Active!")
+
+def run_server():
+    server = HTTPServer(('0.0.0.0', 10000), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+# Jalankan server dummy di latar belakang
+threading.Thread(target=run_server, daemon=True).start()
+
+# --- SCRIPT BOT RADAR KAMU DI BAWAH SINI ---
 TELEGRAM_TOKEN = "8914614490:AAFc7BUBvOMuYaAqagCi2cJIjfhnSxSCaWk"
 CHAT_ID = "5743211849"
 
