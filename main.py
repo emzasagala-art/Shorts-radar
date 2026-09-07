@@ -23,7 +23,7 @@ TELEGRAM_TOKEN = "8914614490:AAFc7BUBvOMuYaAqagCi2cJIjfhnSxSCaWk"
 CHAT_ID = "5743211849"
 
 TARGET_VIEWS = 50000
-MAX_AGE_HOURS = 1
+MAX_AGE_HOURS = 2
 
 def send_telegram(text):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
